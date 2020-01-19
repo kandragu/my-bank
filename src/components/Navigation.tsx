@@ -61,17 +61,6 @@ const Navigation = styled.nav`
   position: fixed;
   top: 0;
   width: 100%;
-
-  &:hover {
-    -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    -o-box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-    box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px,
-      inset rgba(0, 0, 0, 0.15) 0px -10px 20px;
-  }
 `;
 
 export interface NavProps {}
@@ -82,19 +71,11 @@ const Nav: React.SFC = () => {
       <NavList>
         <li>
           {" "}
-          <a href="MyBank"> MyBank</a>
+          <a href=""> Account Transfer</a>
         </li>
         <li>
           {" "}
-          <a href=""> Account</a>
-        </li>
-        <li>
-          {" "}
-          <a href=""> Transactions </a>
-        </li>
-        <li>
-          {" "}
-          <a href=""> Contacts</a>
+          <a href=""> Transactions Reports </a>
         </li>
       </NavList>
     </Navigation>
