@@ -1,6 +1,14 @@
 import * as React from "react";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import styled from "styled-components";
+
+import AccTransForm from "./AccTransForm";
+import TransReport from "./TransReport";
+import { TxAccount } from "./typesBank";
+
+const axios = require("axios");
+
+const POST_URL = "http://localhost:3001/transactions";
 
 const NavList = styled.ul`
   display: flex;
@@ -66,19 +74,54 @@ const Navigation = styled.nav`
 export interface NavProps {}
 
 const Nav: React.SFC = () => {
+  const submit = async (values: any) => {
+    let res: TxAccount = values;
+    res.amount = parseInt(res.amount, 10);
+    /* let disRes = JSON.stringify(res, null, 4);
+    window.alert(disRes);
+    console.log("form values", disRes); */
+    try {
+      const response = await axios.post(POST_URL, res);
+      console.log(response);
+      if (response.status === 200) {
+        alert("success");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const getInitialValues = () => {
+    return {
+      account: "accA",
+      currency: "SGD",
+      action: "credit",
+      amount: 0,
+      desc: "note.."
+    };
+  };
+
   return (
-    <Navigation>
-      <NavList>
-        <li>
-          {" "}
-          <a href=""> Account Transfer</a>
-        </li>
-        <li>
-          {" "}
-          <a href=""> Transactions Reports </a>
-        </li>
-      </NavList>
-    </Navigation>
+    <Router>
+      <Navigation>
+        <NavList>
+          <li>
+            <Link to="/">Account Transfer</Link>
+          </li>
+          <li>
+            <Link to="/report">Transactions Reports</Link>
+          </li>
+        </NavList>
+      </Navigation>
+      <Switch>
+        <Route path="/report">
+          <TransReport />
+        </Route>
+        <Route path="/">
+          <AccTransForm onSubmit={submit} initialValues={getInitialValues()} />
+        </Route>
+      </Switch>
+    </Router>
   );
 };
 

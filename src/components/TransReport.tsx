@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled from "styled-components";
-import { TxAccount } from "../App";
+import { TxAccount } from "./typesBank";
 const axios = require("axios");
 const GET_URL =
   "http://localhost:3001/transactions?filter[offset]=0&filter[limit]=100&filter[skip]=0";
@@ -13,6 +13,7 @@ const TableGrid = styled.div`
   grid-gap: 2px;
   max-height: 100%;
   max-width: 100%;
+  margin-top: 100px;
 `;
 
 const TableHeader = styled.div`
