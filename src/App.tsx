@@ -12,6 +12,7 @@ const Container = styled.div`
 const App: React.FC = () => {
   const submit = (values: any) => {
     window.alert(JSON.stringify(values, null, 4));
+    console.log("form values", JSON.stringify(values, null, 4));
   };
 
   const getInitalValues = () => {
