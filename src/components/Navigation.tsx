@@ -10,6 +10,7 @@ const NavList = styled.ul`
 `;
 
 const Navigation = styled.nav`
+  grid-area: box1;
   cursor: pointer;
   color: #fff;
   font-size: 2em;
@@ -89,7 +90,7 @@ const Nav: React.SFC = () => {
         </li>
         <li>
           {" "}
-          <a href=""> Investment </a>
+          <a href=""> Transactions </a>
         </li>
         <li>
           {" "}
