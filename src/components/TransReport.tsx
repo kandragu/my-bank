@@ -41,12 +41,14 @@ class TransReport extends React.Component {
   state = { data: [] };
   async componentDidMount() {
     const res = await getTrans();
-    this.setState(
-      {
-        data: [...res]
-      },
-      () => console.log(this.state.data)
-    );
+    if (res) {
+      this.setState(
+        {
+          data: [...res]
+        },
+        () => console.log(this.state.data)
+      );
+    }
   }
   render() {
     return (

@@ -28,6 +28,8 @@ describe("Form Input", () => {
 
   it("Click submit", () => {
     const typedText = "Cypress test notes...";
+    const typedAmt = 2;
+    cy.get("input").type(typedAmt);
     cy.get("textarea")
       .clear()
       .type(typedText);
